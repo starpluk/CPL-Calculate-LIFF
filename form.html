@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPL-Price Check</title>
+    <link rel=”stylesheet” href=”css/flex2html.css”>
+    <link rel="stylesheet" href="css/main.css">
+    <script type=”text/javascript” src=”js/flex2html.min.js”></script>
+    <script src="cal.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="contrainer">
+        <img class="logo2" src="img/CPL-Logo.svg">
+
+        <div class="resultBox2">
+
+            <div class="shipping">
+                Shipping Type : &nbsp;
+                <div class="shippingResult"> Import </div>
+            </div>
+
+            <div class="country">
+                Country :  &nbsp;
+                <div class="countryResult" id="countryResult"> Australia </div>
+              </div>
+
+            <div class="shipping">
+                Service : &nbsp;
+                <div class="shippingResult-1"> Air Courier (DAP) </div>
+            </div>
+
+            <div class="shipping">
+                Agent : &nbsp;
+                <div class="agentShip">Fedex</div>
+            </div>
+
+            <div class="shipping">
+                Weight : &nbsp;
+                <div class="weightKG">20</div>
+                <div class="KGtext">&nbsp;kg</div>
+
+            </div>
+
+            <div class="shipping">
+                Price : &nbsp;
+                <div class="priceTotal">12,000</div>
+                <div class="KGtext">&nbsp;Baht</div>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="resultBox">
+
+            <div class="boxinput">
+
+                <div class="contactUS">Contact Form</div>
+                
+
+                <div class="input_1">
+                    <span class="input__label_1">Name</span> <br>
+                    <input class="input__field_1" id="input__field_1" name="ชื่อ-นามสกุล" type="text" placeholder=" First-Lastname" />
+                </div>
+    
+                <div class="input_2">
+    
+    
+                    <span class="input__label_2">Tel.</span> <br>
+                    <input class="input__field_2" id="input__field_2" name="เบอร์โทร" inputmode="decimal" pattern="[0-9]*" type="text" placeholder="" />
+    
+    
+                    <!-- <label class="input_3">
+                        <span class="input__label_3">E-mail</span>
+                        <input class="input__field_3" type="text" placeholder=" " />
+                    </label> -->
+    
+                </div>
+    
+                <div class="input_3">
+                    <span class="input__label_5">E-mail</span> <br>
+                    <input class="input__field_3" id="input__field_3" name="E-mail" type="text" placeholder=" " />
+                </div>
+    
+                <div class="input_3">
+                    <span class="input__label_3">Line ID</span> <br>
+                    <input class="input__field_3" id="input__field_3" name="LineID" type="text" placeholder=" " />
+                </div>
+    
+                <div class="input_4">
+                    <span class="input__label_4">Product Type</span> <br>
+                    <input class="input__field_4" id="input__field_4" name="ประเภทสินค้า" type="text" placeholder=" " />
+                </div>
+
+            </div>
+            
+
+        </div>
+
+
+
+
+
+
+
+        <div class="booOversize"></div>
+
+        <br>
+        <!-- <button class="button" type="button" onclick="testText()" style="color: white ;">text</button> -->
+        <button class="button" id="btnForm" type="Submit" name="Submit" onclick="sendMsg()" style="color: white ;">Submit</button>
+        <br><br>
+        <button class="button" id="btnForm" type="button" onclick="ReplaceResult()" style="color: white ;">Back</button>
+
+
+
+        <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        
+
+    <script>
+         async function main() {
+             liff.ready.then(() => {
+                 document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+                 if (liff.isLoggedIn()) {
+                    getEnvironment();
+                     getUserProfile();
+                     getContext();
+                     getFriendship();
+                     createUniversalLink();
+                 } else {
+                     liff.login();
+                 }
+             });
+             await liff.init({ liffId: "1657243570-NkrPBqrJ" });
+         }
+         main()
+    </script>
+
+
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                // get value from storage
+                $(".resultText").html(sessionStorage.getItem("resultText"));
+                $(".countryResult").html(sessionStorage.getItem("countryResult"));
+                $(".shippingResult").html(sessionStorage.getItem("shippingResult"));
+                $(".Status").html(sessionStorage.getItem("Status"));
+                $(".weightKG").html(sessionStorage.getItem("weightKG"));
+                $(".agentShip").html(sessionStorage.getItem("agentShip"));
+                $(".priceTotal").html(sessionStorage.getItem("priceTotal"));
+                // $(".fedexPrice").html(sessionStorage.getItem("priceTotalFedex"));
+                // $(".tntPrice").html(sessionStorage.getItem("priceTotalTNT"));
+                // $(".upsPrice").html(sessionStorage.getItem("priceTotalUPS"));
+                $(".fedexPrice").html(sessionStorage.getItem("FedexJSON"));
+                $(".tntPrice").html(sessionStorage.getItem("TNTJSON"));
+                $(".upsPrice").html(sessionStorage.getItem("UPSJSON"));
+                // button click
+                // $("#btnClear").click(function(){		
+                //     localStorage.removeItem("sName");
+                //     localStorage.removeItem("sEmail");
+                //     window.location.reload();
+                // });
+            });
+        </script>
+</body>
+
+</html>

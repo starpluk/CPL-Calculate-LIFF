@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPL-Price Check</title>
+  <link rel=”stylesheet” href=”css/flex2html.css”>
+  <link rel="stylesheet" href="css/main.css">
+  <script type=”text/javascript” src=”js/flex2html.min.js”></script>
+  <script src="cal.js"></script>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="contrainer">
+    <img class="logo2" src="img/CPL-Logo.svg">
+
+
+
+    <!-- <div class="glassmorphism">   -->
+
+    <div class="row">
+
+      <div class="infoCal">
+
+        <div class="shipping">
+          Shipping type :  &nbsp;
+          <div class="shippingResult"> Import </div>
+        </div>
+
+        <div class="country">
+            Country :  &nbsp;
+            <div class="countryResult"> Australia </div>
+          </div>
+        
+        
+  
+        <div class="weightResult">
+          Weight : &nbsp;
+          <div class="weightKG"> 20 </div>
+          <div class="KGtext">&nbsp;Kg</div>
+  
+        </div>
+
+        <div class="weightResult">
+          DimWeight : &nbsp;
+          <div class="dimWeight"> 20 </div>
+          <div class="KGtext">&nbsp;Kg</div>
+
+        </div>
+
+      </div>
+
+      <div class="infoShippingtype"> 
+        <img class="iconAirplane" src="img/take-off.svg" > 
+
+        <div class="textinfoshippping">
+          <div class="textInfoShipping_1">Air Courier (DAP)</div> 
+          <div class="textInfoShipping_2">Door To Door</div>
+        </div>
+        
+      </div>
+      
+
+
+      <div class="col-md-4 col-lg-4 col-sm-4">
+
+        <label>
+          <input type="radio" id="rbtnFedex" name="agent" value="fedex" class="card-input-element" />
+
+          <div class="panel panel-default card-input">
+
+            <div class="panel-body">
+              <img class="agentPic" src="img/fedex.svg">
+
+              <div class="priceBox">
+                <div class="priceInBox">
+                  <div class="fedexPrice" id="fedexPrice">12,000</div>
+                  <p class="currentBath">Baht</p>
+                </div>
+                <div class="textOversize">*The product is oversize, Please contact us.</div>
+              </div>
+
+              
+
+            </div>
+          </div>
+
+        </label>
+
+      </div>
+
+      <!-- /* card2 */ -->
+      <div class="col-md-4 col-lg-4 col-sm-4">
+
+        <label>
+          <input type="radio" id="rbtnTnt" name="agent" value="tnt" class="card-input-element" />
+
+          <div class="panel panel-default card-input">
+
+            <div class="panel-body">
+              <img class="agentPic" src="img/tnt.svg">
+
+              <div class="priceBox">
+                <div class="priceInBox">
+                  <div class="tntPrice" id="tntPrice">12000</div>
+                  <p class="currentBath">Baht</p>
+                </div>
+                <div class="textOversize">*The product is oversize, Please contact us.</div>
+              </div>
+
+              
+            </div>
+          </div>
+        </label>
+
+      </div>
+
+      
+      
+    </div>
+
+
+    <!-- divGlass -->
+    <!-- </div> -->
+
+
+
+
+
+    <br><br>
+    <button class="button" id="btnResult" type="button" onclick="ReplaceForm()" style="color: white ;">Next</button>
+    <br><br>
+    <!-- <button class="button" type="button" onclick="testText()" style="color: white ;">text</button> -->
+    <button class="button" type="button" onclick="ReplaceIndex()" style="color: white ;">Back</button>
+
+  </div>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      // get value from storage
+    $(".resultText").html(sessionStorage.getItem("resultText"));
+    $(".countryResult").html(sessionStorage.getItem("countryResult"));
+    $(".shippingResult").html(sessionStorage.getItem("shippingResult"));
+    $(".Status").html(sessionStorage.getItem("Status"));
+    $(".weightKG").html(sessionStorage.getItem("weightKG"));
+
+    // $(".fedexPrice").html(sessionStorage.getItem("priceTotalFedex"));
+    // $(".tntPrice").html(sessionStorage.getItem("priceTotalTNT"));
+    // $(".upsPrice").html(sessionStorage.getItem("priceTotalUPS"));
+    $(".textOversize").html(sessionStorage.getItem("textOversize"));
+    $(".dimWeight").html(sessionStorage.getItem("dimWeight"));
+    $(".fedexPrice").html(sessionStorage.getItem("FedexJSON"));
+    $(".tntPrice").html(sessionStorage.getItem("TNTJSON"));
+    $(".upsPrice").html(sessionStorage.getItem("UPSJSON"));
+      // button click
+      // $("#btnClear").click(function(){		
+      //     localStorage.removeItem("sName");
+      //     localStorage.removeItem("sEmail");
+      //     window.location.reload();
+      // });
+    });
+  </script>
+</body>
+
+</html>
